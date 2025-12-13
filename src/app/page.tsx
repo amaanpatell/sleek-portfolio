@@ -14,14 +14,14 @@ export default function page() {
   return (
     <Container className="min-h-screen py-16">
       <Hero />
-      <Experience />
+      {/* <Experience /> */}
       <Work />
       <About />
       <Github />
       <Blog />
       <CTA />
-      <Setup />
-      <Journey />
+      {/* <Setup /> */}
+      {/* <Journey /> */}
     </Container>
   );
 }

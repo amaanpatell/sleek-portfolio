@@ -53,16 +53,16 @@ export const skillComponents = {
 
 export const heroConfig = {
   // Personal Information
-  name: 'Ram',
+  name: 'Amaan',
   title: 'A Full Stack web developer.',
-  avatar: '/assets/logo.png',
+  avatar: '/assets/logo.PNG',
 
   // Skills Configuration
   skills: [
     {
-      name: 'Typescript',
-      href: 'https://www.typescriptlang.org/',
-      component: 'TypeScript',
+      name: 'JavaScript',
+      href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      component: 'JavaScript',
     },
     {
       name: 'React',
@@ -75,21 +75,21 @@ export const heroConfig = {
       component: 'NextJs',
     },
     {
-      name: 'Bun',
-      href: 'https://bun.sh/',
-      component: 'Bun',
+      name: 'Node.js',
+      href: 'https://nodejs.org/',
+      component: 'NodeJs',
     },
     {
-      name: 'PostgreSQL',
-      href: 'https://www.postgresql.org/',
-      component: 'PostgreSQL',
+      name: 'MonogoDB',
+      href: 'https://www.mongodb.com/',
+      component: 'MongoDB',
     },
   ],
 
   // Description Configuration
   description: {
     template:
-      'I build interactive web apps using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. With a focus on <b>UI</b> design. Enthusiastic about <b>Three.js</b>, driven by a keen eye for design.',
+      'I build interactive web apps using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. With a focus on scalable apps with robust <b>Backends</b> and stunning <b>UI</b>.',
   },
 
   // Buttons Configuration
@@ -113,22 +113,22 @@ export const heroConfig = {
 export const socialLinks = [
   {
     name: 'X',
-    href: 'https://x.com/ramxcodes',
+    href: 'https://x.com/amaanpatelll',
     icon: <X />,
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/ramxcodes/',
+    href: 'https://www.linkedin.com/in/amaan-patel-8251061a1/',
     icon: <LinkedIn />,
   },
   {
     name: 'Github',
-    href: 'https://github.com/ramxcodes',
+    href: 'https://github.com/amaanpatell',
     icon: <Github />,
   },
   {
     name: 'Email',
-    href: 'mailto:ramxcodes@gmail.com',
+    href: 'mailto:amaanp32@gmail.com',
     icon: <Mail />,
   },
 ];

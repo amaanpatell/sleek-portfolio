@@ -10,17 +10,17 @@ import TypeScript from '@/components/technologies/TypeScript';
 
 export const mySkills = [
   <ReactIcon key="react" />,
-  <Bun key="bun" />,
   <JavaScript key="javascript" />,
   <TypeScript key="typescript" />,
+  <NodeJs key="nodejs" />,
   <MongoDB key="mongodb" />,
   <NextJs key="nextjs" />,
-  <NodeJs key="nodejs" />,
   <PostgreSQL key="postgresql" />,
   <Prisma key="prisma" />,
+  <Bun key="bun" />,
 ];
 
 export const about = {
-  name: 'Ramkrishna Swarnkar',
-  description: `I'm a Full Stack web developer and Open Source Contributor, I love building products to solve real-world problems. I'm specialized in building MVP's.`,
+  name: 'Amaan Patel',
+  description: `I'm a Full Stack web developer, I love building products to solve real-world problems.`,
 };
