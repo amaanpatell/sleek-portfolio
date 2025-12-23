@@ -281,7 +281,7 @@ const ChatBubble: React.FC = () => {
               <div
                 key={message.id}
                 className={cn(
-                  'flex w-max max-w-xs flex-col gap-2 rounded-lg px-3 py-2 text-sm',
+                  'flex w-max flex-col gap-2 rounded-lg px-3 py-2 text-sm',
                   message.sender === 'user'
                     ? 'ml-auto text-secondary bg-muted'
                     : 'bg-muted',
