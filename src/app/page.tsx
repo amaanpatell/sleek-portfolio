@@ -19,7 +19,7 @@ export default function page() {
       <About />
       <Github />
       <Blog />
-      <CTA />
+      {/* <CTA /> */}
       {/* <Setup /> */}
       {/* <Journey /> */}
     </Container>

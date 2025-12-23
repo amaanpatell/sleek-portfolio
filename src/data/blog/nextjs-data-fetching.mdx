@@ -1,320 +1,81 @@
 ---
-title: 'Next.JS Data Fetching mistakes & Security vulnerabilities'
-description: 'A guide to Next.js data fetching mistakes & security vulnerabilities'
-image: '/blog/nextjs-data-fetching.png'
-tags: ['frontend', 'development', 'nextjs']
-date: '2025-07-05'
+title: 'How the Internet Works: What Happens When You Click a Link'
+description: 'Ever wondered how your computer finds websites instantly? Learn how the internet works behind the scenes with simple real-world examples'
+image: '/blog/internet-explained.png'
+tags: ['internet', 'dns', 'networking', 'beginner']
+date: '2025-03-21'
 isPublished: true
 ---
 
-## The typical vulnerability
+## Introduction
 
-Fetching data in `Next. Js` feels pretty straightforward foe the first time.
-Just use async await in react server component and good to go.
+Many of us use the internet every day, but have you ever stopped to think about how your computer finds websites for you in the blink of an eye? You tap on a link and boom! website appears. Just take a moment to think about how everything fits together so seamlessly! I'm excited to discuss this with you, and I'll break it down in a simple way using real-world examples that everyone can relate to.
 
-If user authenticate required await headers, cookies or session as you required.
+Let's learn about the internet, and then we'll explore what happens every time you click on a link. The internet is basically a huge network of connected computers and devices all over the world. I know this sounds like a lot of technical talk, but trust me, I'll explain it clearly with real-world examples, so stay with me. Programmers love fancy names.
 
-Here's what flow looks like :
+![Internet Network](https://cdn.hashnode.com/res/hashnode/image/upload/v1742508309188/d322bf7f-c917-4af9-8024-1c2081a5048a.jpeg)
 
-Create an async function, grab some data with Prisma (suppose all the TODO from DB), call it inside your RSC (react server component), and you're done, right?
+---
 
-Unfortunately, NO
-It's not simple actually. What you have done is created a POST request. Not GET but a POST request because that's how Next. Js works under the hood.
+## What Exactly is the Internet
 
-So what's the issue with POST request?
-The issue is -
+Okay, now imagine a giant spider web stretching across the whole world, like the image I mentioned above, connecting millions of computers, phones, and servers. That's basically what the internet is. Instead of actual spider silk, these connections happen through cables, Wi-Fi signals, and even satellites.
 
-- It blocks parallelism
-- It doesn't support caching
-- Bypass your authenticate
-- And also create a security vulnerability
+Now think about how data from other countries reaches our computer. The other country could be anywhere, like from India to the USA, no matter how far away it is. As I mentioned before, these computer connections happen through cables. Yes, I mean actual cables! You might be amazed to learn that these cables are laid deep in the sea. They are very large and connect computers across the world.
 
-## The problem
+![Undersea Cables](https://cdn.hashnode.com/res/hashnode/image/upload/v1742509149741/5ade40fb-55b1-4496-b74d-7e9d904438ae.jpeg)
 
-### Server Actions for Data Fetching
+### A simpler way to think of it:
 
-Let's start with a common example.
-I've built a simple todo application where users can create todos that render below a form.
+- The internet is like a huge city full of buildings (computers)
+- Roads and highways would be (networks) that connect everything together
+- Every building has an address (IP address) so that information **knows where to go**
 
-Here's what the typical (but problematic) implementation looks like:
+Without these connections, you wouldn't be able to stream music, share memes, chat with friends, or even read this article.
 
-```ts
-// page.tsx
-'use client';
+---
 
-export default function Home() {
-  const [todos, setTodos] = useState([]);
+## Step 1: Your Request is Sent
 
-  useEffect(() => {
-    getTodos().then(setTodos);
-  }, []);
+When you search for youtube.com, your computer first needs to find out where YouTube is on the internet. It's like wanting to visit a friend's house but not knowing the house number. You would ask a security guard or a neighbor for help. The security guard has a book with names and house numbers. On the internet, there's a service that helps your browser find YouTube's location. This is where the **DNS (Domain Name System)** comes in. It's like a security guard with a book that tells you YouTube is at this address: "142.250.182.206," which is the actual location of the website. See, I told you I would make this topic very easy.
 
-  // Rest of component...
-}
-```
+---
 
-```ts
-// actions.ts
-'use server';
+## Step 2: Your Request Travels Across the Internet
 
-export async function getTodos() {
-  const todos = await prisma.todo.findMany();
-  return todos;
-}
-```
+Now that your request has an address, it starts its journey:
 
-This works, but it creates several critical problems:
+![Request Journey](https://cdn.hashnode.com/res/hashnode/image/upload/v1742512876952/9d32e0b7-b49b-41a8-8fc2-3883fef039ba.png)
 
-#### Problem 1 : POST Requests for Data Fetching
+1. It **leaves your device** and goes to your Wi-Fi router
+2. From the router, it travels through cables. Your **Internet Service Provider (ISP)** picks it up and sends it toward its destination
+3. If the website's server is far away, your request might travel through **underground cables, satellites, or even undersea fiber-optic cables**
+4. It finally reaches **YouTube's server**, which is basically a giant computer storing all the YouTube videos
 
-When you use server actions to fetch data, you're creating POST requests instead of GET requests.
+---
 
-I'd say open your browser tab and fetch something using server action and the request will be shown as POST Request.
+## Step 3: The Server Sends Data Back
 
-![POST Req](https://i.postimg.cc/LsDWwMWN/image.png)
+Once YouTube's server (essentially a giant computer storing all the data) receives your request, it quickly prepares the webpage and **sends the data back to you** following the same route but in reverse. Your browser then takes all that data and **displays the webpage on your screen**.
 
-#### Problem 2 : No Parallelism
+And guess what? All of this happens in just a fraction of a second! Isn't it fascinating how computers work?
 
-The bigger issue is that POST requests run successively, not in parallel.
-If I we suppose request takes 15-second for the data fetching function and try to create a new todo while data is loading, the creation request waits for the fetch to complete first. This destroys performance.
+---
 
-Here's what happens:
+## Why Does Any of This Matter?
 
-- Request 1 (fetch): 15 seconds
-- Request 2 (create): Waits for Request 1 to finish, then executes
-- Total time: 15+ seconds
+We don't really think about it, but the internet is *everything* today. Whether it's chatting with friends, watching tutorials, working remotely, or even ordering food it all happens online. The internet makes our lives easier, connects people across the world, and lets us access any information instantly.
 
-![What we doing](https://i.postimg.cc/d0KSN0tb/image.png)
+Just imagine a world without Google or YouTube. Crazy, right?
 
-What we want:
+---
 
-- Request 1 (fetch): 15 seconds
-- Request 2 (create): 0.01 seconds (runs in parallel)
-- Total time: ~15 seconds
+## Conclusion
 
-![What we want](https://i.postimg.cc/0NxcdHVx/image.png)
+Next time you click on a link, take a moment to think about the amazing journey your request takes behind the scenes. It's pretty cool to realize how much happens in just a few milliseconds.
 
-#### Solution 1: Server Components with Streaming
+If you've read this far, here's a fun experiment: Open your browser and visit "[**whatismyipaddress.com**](http://whatismyipaddress.com/)**." It will show your unique internet address, similar to your home's street address but for the web.**
 
-The first step is moving data fetching to server components.
-Server components let you fetch data and render parts of your UI on the server, with optional caching and streaming.
+What's one thing on the internet you *can't* live without? Let me know in the comments! If you enjoyed this, follow me and give it a like. I know you liked it because you're still here. I'll upload more content soon. Until then, goodbye!
 
-Example :
-
-```typescript
-// page.tsx (Server Component)
-import { Suspense } from 'react'
-import TodoForm from './components/todo-form'
-import TodoList from './components/todo-list'
-
-export default function Home() {
-  return (
-    <div>
-      <TodoForm />
-      <Suspense fallback={<div>Loading...</div>}>
-        <TodoList />
-      </Suspense>
-    </div>
-  )
-}
-```
-
-```typescript
-// components/todo-form.tsx (Client Component)
-'use client';
-
-export default function TodoForm() {
-  // Form logic with client-side validation
-  // and server action for mutations
-}
-```
-
-```typescript
-// components/todo-list.tsx (Server Component)
-import prisma from '@/lib/prisma'
-
-async function getTodos() {
-  return await prisma.todo.findMany()
-}
-
-export default async function TodoList() {
-  const todos = await getTodos()
-
-  return (
-    <div>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-```
-
-This approach:
-
-- Uses GET requests (implicit in server components)
-- Enables parallel request execution
-- Provides streaming with Suspense boundaries
-- Maintains proper separation between server and client code
-
-#### The Security Problem: Session Verification
-
-Now let's add authentication.
-A common mistake is verifying sessions only at the page level:
-
-```typescript
-// page.tsx
-export default async function Home() {
-  const { getUser } = getServerSession()
-  const user = await getUser()
-
-  if (!user) {
-    redirect('/api/auth/login')
-  }
-
-  return (
-    // Component JSX
-  )
-}
-```
-
-This seems secure, but it creates a critical vulnerability.
-What happens when you extract the `TodoList` component for reuse?
-Suppose you created a `/test` route and imported the `TodoList` component and forgot to do validation there or If another developer creates a new route and imports your component:
-
-```typescript
-// app/test/page.tsx
-import TodoList from '@/components/todo-list'
-
-export default function TestPage() {
-  return <TodoList /> // No session verification!
-}
-```
-
-Visiting `/test` in an incognito browser will display the todos without authentication.
-The session check only exists at the page level, not where the data is actually fetched.
-
-#### Solution 2: Data Access Layer
-
-The [Next.js documentation recommends](https://nextjs.org/docs/app/building-your-application/data-fetching/patterns#creating-a-data-access-layer) creating a data access layer to centralize data requests and authorization logic.
-
-Here's the implementation:
-
-```typescript
-// app/data/user/require-user.ts
-import { redirect } from 'next/navigation';
-import { cache } from 'react';
-import 'server-only';
-
-export const requireUser = cache(async () => {
-  const { getUser } = getServerSession();
-  const user = await getUser();
-
-  if (!user) {
-    redirect('/api/auth/login');
-  }
-
-  return user;
-});
-```
-
-```typescript
-// app/data/todo/get-todos.ts
-import prisma from '@/lib/prisma';
-import 'server-only';
-
-import { requireUser } from '../user/require-user';
-
-export async function getTodos() {
-  await requireUser(); // Verify session before fetching data
-
-  return await prisma.todo.findMany();
-}
-```
-
-\
-
-```typescript
-// components/todo-list.tsx
-import { getTodos } from '@/app/data/todo/get-todos'
-
-export default async function TodoList() {
-  const todos = await getTodos()
-
-  return (
-    <div>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-```
-
-### Benefits of the Data Access Layer
-
-1. **Single Source of Truth**: All data-related code is centralized in one place, making updates and debugging easier.
-2. **Natural Security Checkpoint**: Session verification happens where data is fetched, preventing accidental data leaks when components are reused.
-3. **Organized Structure**: Create folders for different data types:
-
-   ```bash
-   app/data/
-   ├── user/
-   │   ├── require-user.ts
-   │   ├── get-user.ts
-   │   └── get-all-users.ts
-   └── todo/
-       ├── get-todos.ts
-       ├── get-todo.ts
-       └── get-admin-todos.ts
-   ```
-
-#### Performance Optimization: React Cache
-
-Notice the `cache()` function wrapping our `requireUser` function.
-This is crucial for performance.
-
-Imagine a dashboard that needs multiple data sources:
-
-- Get subscribers
-- Get total customers
-- Get revenue for last 30 days
-- Get recent orders
-- And 6 more data points
-
-Without caching, `requireUser()` would run 10 times for a single page render. With React's `cache()` function, it runs once and caches the result for that render pass.
-
-The cache is scoped to a single server-side render and doesn't persist between page navigations, making it perfect for this use case.
-
-#### Security Enhancement: Server-Only
-
-Add the `server-only` package to prevent accidental client-side usage:
-
-```typescript
-import 'server-only';
-
-// This import ensures the function only runs on the server
-// and throws a build-time error if imported in client components
-```
-
-This is different from the `'use server'` directive:
-
-- `'use server'`: Creates server actions callable from both server and client
-- `'server-only'`: Ensures code only executes on the server, throws errors otherwise
-
-### Summary
-
-1. **Use Server Components** for data fetching to get proper GET requests and enable parallelism
-2. **Implement a Data Access Layer** to centralize data logic and security checks
-3. **Verify Sessions at the Data Layer** not just at page level to prevent security vulnerabilities
-4. **Use React's cache() Function** to optimize repeated authentication checks
-5. **Add server-only Imports** to prevent accidental client-side usage
-6. **Use Suspense Boundaries** for streaming and better user experience
-
-Thanks for reading ! Follow me on x its [@ramxcodes](https://x.com/ramxcodes)
+---
