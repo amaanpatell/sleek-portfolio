@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/components/common/ThemeProviders';
 import { generateMetadata as getMetadata } from '@/config/Meta';
 import ReactLenis from 'lenis/react';
 import { ViewTransitions } from 'next-view-transitions';
+import Script from "next/script";
 
 import './globals.css';
 
@@ -22,6 +23,9 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body className={`font-hanken-grotesk antialiased`}>
+         <head>
+          <script defer src="https://cloud.umami.is/script.js" data-website-id="5b85a566-1d4c-463d-aaf4-37cf84efb634"></script>
+        </head>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
