@@ -4,15 +4,6 @@ export const quotes = [
     author: 'George Savile',
   },
   {
-    quote: `You have a right to perform your prescribed duty, but you are not
-            entitled to the fruits of actions.`,
-    author: 'Bhagavad Gita',
-  },
-  {
-    quote: `Man is made by his belief. As he believes, so he is.`,
-    author: 'Bhagavad Gita',
-  },
-  {
     quote: `Arise, awake, and stop not till the goal is reached.`,
     author: 'Katha Upanishad',
   },
@@ -23,5 +14,25 @@ export const quotes = [
   {
     quote: `I’ll take a potato chip… AND EAT IT!`,
     author: 'Light Yagami, Death Note',
+  },
+  {
+    quote: `The secret of getting ahead is getting started.`,
+    author: 'Mark Twain',
+  },
+  {
+    quote: `I never lose. I either win or learn.`,
+    author: 'Nelson Mandela',
+  },
+  {
+    quote: `Simplicity is the ultimate sophistication.`,
+    author: 'Leonardo da Vinci',
+  },
+  {
+    quote: `Make each day your masterpiece.`,
+    author: 'John Wooden',
+  },
+  {
+    quote: `If you don't take risks, you can't create a future.`,
+    author: 'Monkey D. Luffy, One Piece',
   },
 ];
