@@ -14,6 +14,8 @@ import './globals.css';
 
 export const metadata = getMetadata('/');
 
+import HeroWithScales from '@/components/Hero-with-scales';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,13 +32,15 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ReactLenis root>
-              <Navbar />
-              {children}
-              {/* <OnekoCat /> */}
-              <Quote />
-              <Footer />
-              <ChatBubble />
-              <UmamiAnalytics />
+              <HeroWithScales>
+                <Navbar />
+                {children}
+                {/* <OnekoCat /> */}
+                <Quote />
+                <Footer />
+                <ChatBubble />
+                <UmamiAnalytics />
+              </HeroWithScales>
             </ReactLenis>
           </ThemeProvider>
         </body>
