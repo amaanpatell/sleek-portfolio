@@ -1,0 +1,66 @@
+---
+title: 'Thumbly'
+description: 'An AI-powered YouTube thumbnail generator that creates character-consistent, eye-catching thumbnails using Google Gemini.'
+image: '/project/thumbly.png'
+technologies:
+  ['Next.js', 'React', 'Gemini API', 'Tailwind CSS', 'TypeScript']
+github: 'https://github.com/yourusername/thumbly'
+live: 'https://thumbly.yourdomain.com'
+timeline: '3 Weeks'
+role: 'Full Stack Developer'
+team: 'Solo'
+status: 'In Progress'
+featured: true
+challenges:
+  ['Character Consistency Across Generations', 'Prompt Engineering for Thumbnails', 'Architecture Pivot from Diffusion to Gemini']
+learnings: ['Gemini API Image Generation', 'AI Product Design', 'Iterative Architecture Decisions']
+isPublished: true
+---
+
+## Overview
+
+**Thumbly** is an AI-powered YouTube thumbnail creator built for content creators who want professional, attention-grabbing thumbnails — without the design skills or time investment.
+
+Users describe their video concept, and Thumbly generates bold, character-consistent thumbnails tailored for YouTube's competitive visual landscape. The project went through a significant architecture evolution — starting with a diffusion model stack before pivoting to a **Gemini API-based approach** using Gemini Flash Image for faster, more controllable, and character-consistent output.
+
+## Key Features
+
+### **Features Implemented**
+
+- **AI Thumbnail Generation**: Generate YouTube-optimized thumbnails from a text prompt
+- **Character Consistency**: Maintain visual identity of subjects across multiple thumbnail variations
+- **Gemini-Powered Pipeline**: Leverages Gemini Flash Image (Nano Banana 2) for high-quality image output
+- **Prompt Engineering Layer**: Custom prompt construction tuned specifically for thumbnail aesthetics (bold expressions, high contrast, text-overlay-friendly compositions)
+- **Multiple Variations**: Generate several thumbnail options per concept for A/B testing
+- **Clean Creator UI**: Simple, focused interface designed for non-designers
+
+## Architecture
+
+The project went through a deliberate architectural pivot:
+
+### **Initial Approach — Diffusion Model Stack**
+The first iteration was designed around open-source diffusion models, aiming for fine-grained control over style and character. However, this introduced complexity around model hosting, inference speed, and maintaining character consistency across generations — a known pain point with diffusion pipelines.
+
+### **Final Approach — Gemini API**
+After evaluating the tradeoffs, the architecture shifted to Google's **Gemini Flash Image** model via the Gemini API. This unlocked:
+- Faster generation with lower infrastructure overhead
+- Better instruction-following for composition-specific prompts
+- Improved character consistency without fine-tuning
+
+## Challenges
+
+### **Character Consistency**
+Keeping the same person or character visually consistent across thumbnail variations is one of the hardest problems in AI image generation. The solution involved careful prompt structuring and leveraging Gemini's multimodal understanding to anchor visual identity.
+
+### **Prompt Engineering for Thumbnails**
+YouTube thumbnails have a very specific visual grammar — extreme expressions, bold colors, readable at small sizes. Building a prompt layer that reliably produces "thumbnail-native" images required significant iteration.
+
+### **Architecture Pivot**
+Recognizing early that the diffusion stack wasn't the right fit and making a clean pivot to Gemini was a key decision. It meant rethinking the generation pipeline but resulted in a much more robust product.
+
+## Learnings
+
+- Hands-on experience with the **Gemini API** for image generation tasks
+- How to design AI products around model constraints and strengths
+- The value of **fast architectural decisions** — knowing when to pivot vs. when to push through
+- Prompt engineering patterns specific to visual content generation
