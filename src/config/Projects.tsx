@@ -23,6 +23,44 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    title: 'Thumbly',
+    description:
+      'An AI-powered YouTube thumbnail generator that creates character-consistent, eye-catching thumbnails.',
+    image: '/project/thumbly.png',
+    video: 'https://ik.imagekit.io/yourid/thumbly.mp4?tr=orig',
+    link: 'https://thumbly-swart.vercel.app',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'Vercel', icon: <Vercel key="vercel" /> },
+    ],
+    live: 'https://thumbly-swart.vercel.app',
+    details: true,
+    projectDetailsPageSlug: '/projects/thumbly',
+    isWorking: true,
+  },
+
+  {
+    title: 'Lumex UI',
+    description:
+      'A modern React component library with a shadcn-style registry and Fumadocs-powered documentation site.',
+    image: '/project/lumexui.png',
+    video: 'https://ik.imagekit.io/yourid/lumexui.mp4?tr=orig',
+    link: 'https://lumexui.vercel.app',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'Vercel', icon: <Vercel key="vercel" /> },
+    ],
+    live: 'https://lumexui.vercel.app/',
+    details: true,
+    projectDetailsPageSlug: '/projects/lumexui',
+    isWorking: false,
+  },
+
+  {
     title: 'LeetLab',
     description:
       'A LeetCode-style coding practice platform with real-time code execution, problem management, and submission tracking.',
@@ -67,28 +105,6 @@ export const projects: Project[] = [
   },
 
   {
-    title: 'NotebookLM AI Chatbot',
-    description:
-      'An AI chatbot that lets users chat with PDFs, YouTube videos, websites, and text using a RAG-based architecture.',
-    image: '/project/notebooklm.png',
-    video: 'https://ik.imagekit.io/yourid/notebooklm.mp4?tr=orig',
-    link: 'https://notebooklm.amaanpatel.space',
-    technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-    ],
-    github: 'https://github.com/amaanpatell/notebook_lm',
-    live: 'https://notebooklm.amaanpatel.space',
-    details: true,
-    projectDetailsPageSlug: '/projects/notebooklm',
-    isWorking: true,
-  },
-
-  {
     title: 'T3Chat Clone',
     description:
       'A multi-model AI chat application powered by OpenRouter with real-time streaming and model switching.',
@@ -129,6 +145,28 @@ export const projects: Project[] = [
     live: 'https://task-management.amaanpatel.space',
     details: true,
     projectDetailsPageSlug: '/projects/projectcamp',
+    isWorking: true,
+  },
+
+  {
+    title: 'NotebookLM AI Chatbot',
+    description:
+      'An AI chatbot that lets users chat with PDFs, YouTube videos, websites, and text using a RAG-based architecture.',
+    image: '/project/notebooklm.png',
+    video: 'https://ik.imagekit.io/yourid/notebooklm.mp4?tr=orig',
+    link: 'https://notebooklm.amaanpatel.space',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
+      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+    ],
+    github: 'https://github.com/amaanpatell/notebook_lm',
+    live: 'https://notebooklm.amaanpatel.space',
+    details: true,
+    projectDetailsPageSlug: '/projects/notebooklm',
     isWorking: true,
   },
 ];
