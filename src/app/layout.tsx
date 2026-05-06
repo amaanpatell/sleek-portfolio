@@ -14,7 +14,6 @@ import './globals.css';
 
 export const metadata = getMetadata('/');
 
-import HeroWithScales from '@/components/Hero-with-scales';
 
 export default function RootLayout({
   children,
@@ -32,7 +31,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ReactLenis root>
-              <HeroWithScales>
                 <Navbar />
                 {children}
                 <OnekoCat />
@@ -40,7 +38,6 @@ export default function RootLayout({
                 <Footer />
                 <ChatBubble />
                 <UmamiAnalytics />
-              </HeroWithScales>
             </ReactLenis>
           </ThemeProvider>
         </body>
