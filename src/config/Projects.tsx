@@ -148,25 +148,25 @@ export const projects: Project[] = [
     isWorking: true,
   },
 
-  {
-    title: 'NotebookLM AI Chatbot',
-    description:
-      'An AI chatbot that lets users chat with PDFs, YouTube videos, websites, and text using a RAG-based architecture.',
-    image: '/project/notebooklm.png',
-    video: 'https://ik.imagekit.io/yourid/notebooklm.mp4?tr=orig',
-    link: 'https://notebooklm.amaanpatel.space',
-    technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-    ],
-    github: 'https://github.com/amaanpatell/notebook_lm',
-    live: 'https://notebooklm.amaanpatel.space',
-    details: true,
-    projectDetailsPageSlug: '/projects/notebooklm',
-    isWorking: true,
-  },
+  // {
+  //   title: 'NotebookLM AI Chatbot',
+  //   description:
+  //     'An AI chatbot that lets users chat with PDFs, YouTube videos, websites, and text using a RAG-based architecture.',
+  //   image: '/project/notebooklm.png',
+  //   video: 'https://ik.imagekit.io/yourid/notebooklm.mp4?tr=orig',
+  //   link: 'https://notebooklm.amaanpatel.space',
+  //   technologies: [
+  //     { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+  //     { name: 'React', icon: <ReactIcon key="react" /> },
+  //     { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
+  //     { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+  //     { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+  //     { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+  //   ],
+  //   github: 'https://github.com/amaanpatell/notebook_lm',
+  //   live: 'https://notebooklm.amaanpatel.space',
+  //   details: true,
+  //   projectDetailsPageSlug: '/projects/notebooklm',
+  //   isWorking: true,
+  // },
 ];
